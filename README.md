@@ -1,4 +1,10 @@
+
+생활코딩 
+https://www.youtube.com/watch?v=Cwwsv_OaWhM
+React-Redux를 이용해서 웹앱을 만들어봅니다. 이론 보다는 실전에 중점을 두고, Create, Read, Update, Delete 되는 웹앱을 React와 Redux를 이용해서 구현해봅니다. 
+
 # Getting Started with Create React App
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
