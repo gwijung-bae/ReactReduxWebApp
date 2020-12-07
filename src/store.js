@@ -1,8 +1,9 @@
 
 import {createStore} from 'redux';
 
+
 let initState = {
-    mode:'WELCOME',
+    mode:'READ',
     welcome_content:{
         title:'WEB',
         desc:'Hello, WEB'
@@ -20,7 +21,11 @@ function reducer(state, action){
         return initState;
     }
 
+    if(action.type === 'CHANGE_MODE'){
+        return {...state, mode:action.mode};
+    }
+
     return state;
 }
 
-export default createStore(reducer);
+export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
