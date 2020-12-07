@@ -2,7 +2,7 @@
 import {createStore} from 'redux';
 
 let initState = {
-    mode:'READ',
+    mode:'WELCOME',
     welcome_content:{
         title:'WEB',
         desc:'Hello, WEB'
@@ -18,7 +18,7 @@ let initState = {
 function reducer(state=initState, action){
    
     if(action.type === 'WELCOME'){
-        return {...state, mode:action.mode};
+        return {...state, mode:'WELCOME'};
     }
     if(action.type === 'READ'){
         return {...state, mode:"READ", selected_contents_id:action.id};
