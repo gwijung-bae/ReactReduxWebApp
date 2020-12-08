@@ -8,6 +8,7 @@ let initState = {
         desc:'Hello, WEB'
     },
     selected_contents_id:1,
+    max_content_id:3,   // 현재 등록 되어 있는 값중 제일 큰거 
     contents:[
         {id:1, title:'HTML', desc:'HTML is ...'},
         {id:2, title:'CSS', desc:'CSS is ...'},
@@ -32,6 +33,11 @@ function reducer(state=initState, action){
     }
     if(action.type === 'DELETE'){
         return {...state, mode:'DELETE'};
+    }
+    if(action.type === 'CREATE_PROCESS'){
+       let newId = state.max_content_id + 1;
+       let newContents = [...state.contents,{id:newId, title:action.title , desc:action.desc}];
+       return{...state, contents:newContents, max_content_id:newId, mode:'READ', selected_contents_id:newId };
     }
 
     return state;
