@@ -27,10 +27,7 @@ function reducer(state=initState, action){
     if(action.type === 'CREATE'){
         return {...state, mode:'CREATE'};
     }
-    
-    if(action.type === 'UPDATE'){
-        return {...state, mode:'UPDATE'};
-    }
+ 
     if(action.type === 'DELETE'){
         return {...state, mode:'DELETE'};
     }
@@ -39,6 +36,23 @@ function reducer(state=initState, action){
        let newContents = [...state.contents,{id:newId, title:action.title , desc:action.desc}];
        return{...state, contents:newContents, max_content_id:newId, mode:'READ', selected_contents_id:newId };
     }
+
+    if(action.type === 'UPDATE'){
+        return {...state, mode:'UPDATE'};
+    }
+
+    if(action.type === 'UPDATE_PROCESS'){
+     
+        let newContents = [...state.contents];
+        for(var i=0; i<newContents.length; i++){
+            if(newContents[i].id === action.id){
+                newContents[i].title = action.title;
+                newContents[i].desc = action.desc;
+            }
+        }
+
+        return{...state, contents:newContents, mode:'READ', selected_contents_id:action.id };
+     }
 
     return state;
 }

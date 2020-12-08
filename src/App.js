@@ -7,6 +7,7 @@ import NavContainer from "./containers/Nav";
 import ReadContainer from "./containers/Read";
 import ControlContainer from "./containers/Control";
 import CreateContainer from "./containers/Create";
+import UpdateContainer from "./containers/Update";
 
 
 class App extends Component {
@@ -20,6 +21,8 @@ class App extends Component {
       article = <ReadContainer></ReadContainer>     
     }else if(this.props.mode === 'CREATE'){
       article = <CreateContainer></CreateContainer>    
+    }else if(this.props.mode === 'UPDATE'){
+      article = <UpdateContainer></UpdateContainer>    
     }
 
     return (
